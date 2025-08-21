@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(123deg, rgba(235, 214, 33, 1), rgba(209, 228, 227, 1), rgba(55, 132, 168, 1));
+}
+
+header {
+  background: #9d61cfff; 
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+button {
+  background: #9d61cfff;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #58049cff;
+}
+
+textarea {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+}

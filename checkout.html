@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Engraving Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Checkout</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Customer Information</h2>
+      <form id="checkout-form">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="address">Delivery Address:</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+
+        <label for="engraving">Engraving Description:</label>
+        <textarea id="engraving" name="engraving" rows="3" placeholder="Write what you want engraved..." required></textarea>
+
+        <h3>Order Summary</h3>
+        <div id="order-summary"></div>
+        <h3>Total: <span id="checkout-total">R0</span></h3>
+
+        <button type="submit">Place Order</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Engraving Store. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Display cart items on checkout page
+    document.addEventListener("DOMContentLoaded", () => {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let summary = document.getElementById("order-summary");
+      let total = 0;
+
+      cart.forEach(item => {
+        let p = document.createElement("p");
+        p.textContent = `${item.product} - R${item.price}`;
+        summary.appendChild(p);
+        total += item.price;
+      });
+
+      document.getElementById("checkout-total").textContent = "R" + total;
+    });
+
+    // Handle order submission
+    document.getElementById("checkout-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Thank you for your order! We will contact you shortly.");
+      localStorage.removeItem("cart"); // Clear cart after order
+      window.location.href = "index.html"; // Redirect to home
+    });
+  </script>
+</body>
+</html>
